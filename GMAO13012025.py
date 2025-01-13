@@ -2,7 +2,6 @@ import os
 import json
 import glob
 import streamlit as st
-import matplotlib.pyplot as plt
 import pandas as pd
 
 # Liste des pays en Afrique
@@ -325,17 +324,6 @@ def bilan_offres_bc():
             df_results = pd.DataFrame(results)
             st.dataframe(df_results)  # Afficher le tableau des résultats
 
-            # Générer le graphique
-            months = [month for month, count in month_counts.items() if count > 0]
-            counts = [month_counts[month] for month in months]
-
-            if counts:
-                fig, ax = plt.subplots(figsize=(10, 6))
-                ax.bar(months, counts, color='skyblue')
-                ax.set_xlabel('Mois')
-                ax.set_ylabel('Nombre de documents')
-                ax.set_title(f"Bilan des {doc_type} par Mois")
-                st.pyplot(fig)
         else:
             st.warning(f"Aucun {doc_type} trouvé pour la période sélectionnée.")
 
