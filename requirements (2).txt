@@ -3,4 +3,4 @@ json
 glop
 streamlit
 pandas
-matplotlib.pyplot
+matplotlib
